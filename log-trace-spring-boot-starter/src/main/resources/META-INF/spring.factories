@@ -1,0 +1,10 @@
+# Auto Configuration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.purgerteam.log.trace.starter.TraceAutoConfiguration,\
+com.purgerteam.log.trace.starter.instrument.feign.TraceFeignClientAutoConfiguration,\
+com.purgerteam.log.trace.starter.instrument.zuul.TraceZuulAutoConfiguration,\
+com.purgerteam.log.trace.starter.instrument.resttemplate.TraceRestTemplateConfiguration
+
+# Environment Post Processor
+org.springframework.boot.env.EnvironmentPostProcessor=\
+com.purgerteam.log.trace.starter.processor.TraceEnvironmentPostProcessor
