@@ -1,6 +1,6 @@
 # SpringBoot之微服务日志链路追踪
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.purgeteam/log-trace-spring-boot-starter.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:com.purgeteam%20AND%20a:mysql-datasource-spring-boot-starter)
+[![Maven Central](https://img.shields.io/maven-central/v/com.purgeteam/log-trace-spring-boot-starter.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:com.purgeteam%20AND%20a:log-trace-spring-boot-starter)
 ![License](https://img.shields.io/badge/SpringBoot-2.1.8.RELEASE-green.svg)
 ![License](https://img.shields.io/badge/JAVA-1.8+-green.svg)
 ![License](https://img.shields.io/badge/maven-3.0+-green.svg)
