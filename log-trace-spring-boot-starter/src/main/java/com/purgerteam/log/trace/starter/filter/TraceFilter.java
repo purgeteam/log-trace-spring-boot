@@ -44,6 +44,16 @@ public class TraceFilter implements Filter {
         MDC.clear();
     }
 
+    @Override
+    public void destroy() {
+
+    }
+
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+
+    }
+
 
     private String traceIdString() {
         UUID uuid = UUID.randomUUID();

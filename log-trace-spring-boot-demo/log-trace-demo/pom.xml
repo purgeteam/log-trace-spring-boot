@@ -17,6 +17,7 @@
         <module>log-trace-dubbo-demo</module>
         <module>log-trace-springboot1.5.x-demo</module>
         <module>log-trace-springboot-2.1.x-demo</module>
+        <module>log-trace-springboot-2.0.x-demo</module>
     </modules>
 
 </project>
