@@ -12,6 +12,14 @@
     <artifactId>log-trace-dubbo-consumers-demo</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>com.purgeteam</groupId>
+            <artifactId>log-trace-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.purgeteam</groupId>
+            <artifactId>log-trace-dubbo-api-demo</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

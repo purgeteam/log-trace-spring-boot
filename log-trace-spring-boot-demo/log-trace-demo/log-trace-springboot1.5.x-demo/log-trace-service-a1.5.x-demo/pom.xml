@@ -3,32 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>log-trace-demo</artifactId>
+        <artifactId>log-trace-springboot1.5.x-demo</artifactId>
         <groupId>com.purgeteam</groupId>
         <version>0.1.0.RELEASE</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>log-trace-dubbo-demo</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>log-trace-dubbo-provider-demo</module>
-        <module>log-trace-dubbo-consumers-demo</module>
-        <module>log-trace-dubbo-api-demo</module>
-    </modules>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.purgeteam</groupId>
-                <artifactId>log-trace-dubbo-api-demo</artifactId>
-                <version>0.1.0.RELEASE</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <artifactId>log-trace-service-a1.5.x-demo</artifactId>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.purgeteam</groupId>
+            <artifactId>log-trace-spring-boot-starter</artifactId>
+            <version>0.1.0.RELEASE</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -36,9 +25,13 @@
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-            <version>2.1.0.RELEASE</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
         <!-- java lombok -->
@@ -47,11 +40,6 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-dubbo</artifactId>
-            <version>2.1.0.RELEASE</version>
-        </dependency>
     </dependencies>
 
     <build>

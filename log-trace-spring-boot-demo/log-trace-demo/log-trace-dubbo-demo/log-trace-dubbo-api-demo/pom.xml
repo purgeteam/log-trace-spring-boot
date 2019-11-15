@@ -9,17 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>log-trace-dubbo-provider-demo</artifactId>
+    <artifactId>log-trace-dubbo-api-demo</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.purgeteam</groupId>
-            <artifactId>log-trace-spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.purgeteam</groupId>
-            <artifactId>log-trace-dubbo-api-demo</artifactId>
-        </dependency>
-    </dependencies>
 
 </project>
