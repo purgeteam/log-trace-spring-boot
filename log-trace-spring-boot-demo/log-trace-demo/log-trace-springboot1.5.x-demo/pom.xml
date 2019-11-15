@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>log-trace-springboot1.5.x-demo</artifactId>
+    <packaging>pom</packaging>
 
     <modules>
         <module>log-trace-service-a1.5.x-demo</module>
@@ -39,6 +40,17 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+<!--            <dependency>-->
+<!--                <groupId>org.apache.tomcat.embed</groupId>-->
+<!--                <artifactId>tomcat-embed-core</artifactId>-->
+<!--                <version>9.0.24</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.apache.tomcat.embed</groupId>-->
+<!--                <artifactId>tomcat-embed-el</artifactId>-->
+<!--                <version>9.0.24</version>-->
+<!--            </dependency>-->
         </dependencies>
     </dependencyManagement>
 

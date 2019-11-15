@@ -48,6 +48,7 @@
   <version>0.1.0.RELEASE</version>
 </dependency>
 ```
+**ps: 请基于 `SpirngBoot2.1.x` 版本使用**
 
 ### 配置应用
 
