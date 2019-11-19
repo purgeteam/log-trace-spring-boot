@@ -9,7 +9,6 @@ import org.springframework.util.StringUtils;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.UUID;
 
 /**
  * @author purgeyao
@@ -27,7 +26,7 @@ public class TraceFilter implements Filter {
         log.debug("TraceFilter headerTraceId {}", headerTraceId);
         // 如果为空，则表示第一次访问，即上游服务端的请求
         if (StringUtils.isEmpty(headerTraceId)) {
-            MDC.put(Constants.LEGACY_TRACE_ID_NAME, traceIdString());
+            MDC.put(Constants.LEGACY_TRACE_ID_NAME, TraceIdUtil.traceIdString());
         } else {
             MDC.put(Constants.LEGACY_TRACE_ID_NAME, headerTraceId);
         }
@@ -54,21 +53,4 @@ public class TraceFilter implements Filter {
 
     }
 
-
-    private String traceIdString() {
-        UUID uuid = UUID.randomUUID();
-        String uuidStr = uuid.toString().replace("-", "");
-        return getUUID(uuidStr, 16);
-    }
-
-    private static String getUUID(String uuid, int len) {
-        if (0 >= len) {
-            return null;
-        }
-        StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < len; i++) {
-            sb.append(uuid.charAt(i));
-        }
-        return sb.toString();
-    }
 }
