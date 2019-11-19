@@ -1,6 +1,5 @@
-package com.purgerteam.log.trace.starter.instrument;
+package com.purgerteam.log.trace.starter;
 
-import com.purgerteam.log.trace.starter.Constants;
 import com.purgerteam.log.trace.starter.filter.TraceIdUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

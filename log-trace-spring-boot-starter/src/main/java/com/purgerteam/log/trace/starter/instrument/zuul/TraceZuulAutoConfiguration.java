@@ -1,7 +1,7 @@
 package com.purgerteam.log.trace.starter.instrument.zuul;
 
 import com.netflix.zuul.ZuulFilter;
-import com.purgerteam.log.trace.starter.instrument.TraceContentFactory;
+import com.purgerteam.log.trace.starter.TraceContentFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.context.annotation.Bean;

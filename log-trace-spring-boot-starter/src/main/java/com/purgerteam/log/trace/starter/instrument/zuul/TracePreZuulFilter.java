@@ -4,7 +4,7 @@ import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 import com.purgerteam.log.trace.starter.Constants;
-import com.purgerteam.log.trace.starter.instrument.TraceContentFactory;
+import com.purgerteam.log.trace.starter.TraceContentFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;

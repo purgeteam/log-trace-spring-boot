@@ -1,6 +1,6 @@
 package com.purgerteam.log.trace.starter.instrument.feign;
 
-import com.purgerteam.log.trace.starter.instrument.TraceContentFactory;
+import com.purgerteam.log.trace.starter.TraceContentFactory;
 import feign.Client;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;

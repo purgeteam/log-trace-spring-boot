@@ -1,6 +1,6 @@
 package com.purgerteam.log.trace.starter.instrument.resttemplate;
 
-import com.purgerteam.log.trace.starter.instrument.TraceContentFactory;
+import com.purgerteam.log.trace.starter.TraceContentFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.boot.web.client.RestTemplateBuilder;

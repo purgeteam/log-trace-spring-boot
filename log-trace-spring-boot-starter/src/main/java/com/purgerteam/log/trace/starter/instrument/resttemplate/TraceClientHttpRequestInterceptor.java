@@ -1,6 +1,6 @@
 package com.purgerteam.log.trace.starter.instrument.resttemplate;
 
-import com.purgerteam.log.trace.starter.instrument.TraceContentFactory;
+import com.purgerteam.log.trace.starter.TraceContentFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpRequest;
 import org.springframework.http.client.ClientHttpRequestExecution;

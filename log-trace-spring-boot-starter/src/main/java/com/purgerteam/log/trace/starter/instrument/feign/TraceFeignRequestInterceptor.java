@@ -1,6 +1,6 @@
 package com.purgerteam.log.trace.starter.instrument.feign;
 
-import com.purgerteam.log.trace.starter.instrument.TraceContentFactory;
+import com.purgerteam.log.trace.starter.TraceContentFactory;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 
