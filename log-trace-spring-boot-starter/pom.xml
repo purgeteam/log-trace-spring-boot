@@ -6,12 +6,11 @@
     <parent>
         <artifactId>log-trace-spring-boot</artifactId>
         <groupId>com.purgeteam</groupId>
-        <version>0.1.0.RELEASE</version>
+        <version>0.1.1.RELEASE</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>log-trace-spring-boot-starter</artifactId>
-    <version>${log-trace-starter.version}</version>
 
     <dependencies>
 

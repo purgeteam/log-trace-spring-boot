@@ -4,7 +4,7 @@
 
     <groupId>com.purgeteam</groupId>
     <artifactId>log-trace-spring-boot</artifactId>
-    <version>0.1.0.RELEASE</version>
+    <version>0.1.1.RELEASE</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -59,8 +59,6 @@
     </distributionManagement>
 
     <properties>
-
-        <log-trace-starter.version>0.1.1.RELEASE</log-trace-starter.version>
         <spring-boot.version>2.1.8.RELEASE</spring-boot.version>
         <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
         <spring-cloud-openfeign.version>2.1.2.RELEASE</spring-cloud-openfeign.version>
