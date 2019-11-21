@@ -6,9 +6,11 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.core.Ordered;
 import org.springframework.core.PriorityOrdered;
+import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Collections;
+import java.util.List;
 
 /**
  * @author purgeyao
@@ -41,7 +43,9 @@ public class RestTemplatePostProcessor implements BeanPostProcessor, PriorityOrd
     }
 
     private void processing(RestTemplate restTemplate) {
-        restTemplate.setInterceptors(Collections.singletonList(new TraceClientHttpRequestInterceptor(traceContentFactory)));
+        List<ClientHttpRequestInterceptor> interceptors = restTemplate.getInterceptors();
+        interceptors.add(new TraceClientHttpRequestInterceptor(traceContentFactory));
+        restTemplate.setInterceptors(interceptors);
     }
 
 }
