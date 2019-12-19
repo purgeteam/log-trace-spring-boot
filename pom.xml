@@ -4,7 +4,7 @@
 
     <groupId>com.purgeteam</groupId>
     <artifactId>log-trace-spring-boot</artifactId>
-    <version>0.1.2.RELEASE</version>
+    <version>0.1.3.RELEASE</version>
     <packaging>pom</packaging>
 
     <modules>
