@@ -15,6 +15,7 @@
 - zuul 调用
 - feign 调用
 - restTemplate 调用
+- dobbo 调用
 
 日志输出格式：
 
@@ -45,7 +46,7 @@
 <dependency>
   <groupId>com.purgeteam</groupId>
   <artifactId>log-trace-spring-boot-starter</artifactId>
-  <version>0.1.0.RELEASE</version>
+  <version>0.1.2.RELEASE</version>
 </dependency>
 ```
 **ps: 请基于 `SpirngBoot2.1.x` 版本使用**
