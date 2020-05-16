@@ -6,6 +6,8 @@
 ![License](https://img.shields.io/badge/maven-3.0+-green.svg)
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
+🔥🔥🔥相关文档请访问 [PurgeTeam docs](http://www.purgeteam.com)🔥🔥🔥
+
 ## 简介
 
 在微服务里，业务出现问题或者程序出的任何问题，都少不了查看日志，一般我们使用 `ELK` 相关的日志收集工具，服务多的情况下，业务问题也是有些难以排查，只能确定大致时间定位相关日志。`log-trace-spring-boot-starter` 解决多个服务调用日志的问题，它可以将一个完整的调用链给整合为一个完整有序的日志。
