@@ -20,4 +20,14 @@
         <module>log-trace-springboot-2.0.x-demo</module>
     </modules>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.purgeteam</groupId>
+                <artifactId>log-trace-spring-boot-starter</artifactId>
+                <version>0.1.3.RELEASE</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
 </project>

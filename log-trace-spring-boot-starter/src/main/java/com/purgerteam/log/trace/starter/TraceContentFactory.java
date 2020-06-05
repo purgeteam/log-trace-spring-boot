@@ -1,6 +1,7 @@
 package com.purgerteam.log.trace.starter;
 
-import com.purgerteam.log.trace.starter.filter.TraceIdUtil;
+import com.purgerteam.log.trace.starter.handlers.TraceMetaObjectHandler;
+import com.purgerteam.log.trace.starter.util.TraceIdUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
@@ -12,8 +13,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author purgeyao
- * @since 1.0
+ * 请求链路内容工厂
+ *
+ * @author <a href="mailto:yaoonlyi@gmail.com">purgeyao</a>
+ * @since 1.0.0
  */
 public class TraceContentFactory implements EnvironmentAware {
 
@@ -21,28 +24,31 @@ public class TraceContentFactory implements EnvironmentAware {
 
     private static Environment environment;
 
+    private static Map<String, TraceMetaObjectHandler> traceMetaObjectHandlerMap;
+
+    public TraceContentFactory(Map<String, TraceMetaObjectHandler> traceMetaObjectHandlerMap) {
+        TraceContentFactory.traceMetaObjectHandlerMap = traceMetaObjectHandlerMap;
+    }
+
     /**
-     * 储存本地MDC
+     * 储存本地 MDC
      *
      * @param traceContentMap 内容集合
      */
     public static void storageMDC(Map<String, String> traceContentMap) {
-        String headerTraceId = traceContentMap.get(Constants.LEGACY_TRACE_ID_NAME);
-        log.debug("Trace traceId {}", headerTraceId);
-        // 如果为空，则表示第一次访问，即上游服务端的请求
-        if (StringUtils.isEmpty(headerTraceId)) {
-            MDC.put(Constants.LEGACY_TRACE_ID_NAME, TraceIdUtil.traceIdString());
-        } else {
-            MDC.put(Constants.LEGACY_TRACE_ID_NAME, headerTraceId);
+        // 执行 TraceMetaObjectHandler 拓展器
+        for (Map.Entry<String, TraceMetaObjectHandler> entry : traceMetaObjectHandlerMap.entrySet()) {
+            TraceMetaObjectHandler handler = entry.getValue();
+            handler.additionalFill(traceContentMap);
         }
 
-        // "ParentName"
-        String headerParentName = traceContentMap.get(Constants.LEGACY_PARENT_SERVICE_NAME);
-        if (StringUtils.isEmpty(headerTraceId)) {
-            MDC.put(Constants.LEGACY_PARENT_SERVICE_NAME, "this");
-        } else {
-            MDC.put(Constants.LEGACY_PARENT_SERVICE_NAME, headerParentName);
+        // 写入 MDC
+        for (Map.Entry<String, String> entry : traceContentMap.entrySet()) {
+            MDC.put(entry.getKey(), entry.getValue());
         }
+
+        log.debug("[TraceContentFactory] 请求流量: traceId={}, ParentName={}",
+                MDC.get(Constants.LEGACY_TRACE_ID_NAME), MDC.get(Constants.LEGACY_PARENT_SERVICE_NAME));
     }
 
     public Map<String, String> assemblyTraceContent() {
@@ -53,6 +59,11 @@ public class TraceContentFactory implements EnvironmentAware {
         return buildTraceContent();
     }
 
+    /**
+     * 获取 MDC 内容 同时添加 X-B3-ParentName 参数
+     *
+     * @return MDC map
+     */
     private static Map<String, String> buildTraceContent() {
         Map<String, String> traceContentMap = MDC.getCopyOfContextMap();
         if (traceContentMap == null) {

@@ -33,17 +33,19 @@ public class TestController {
         return "test";
     }
 
-    @GetMapping("test1")
-    public String test1() {
+    @GetMapping("testFeign")
+    public String testFeign() {
         log.info("controller test1 执行 {}", MDC.get("X-B3-TraceId"));
-        testFeign.test();
+        String test = testFeign.test();
+        log.info("执行 testFeign 方法返回值{}", test);
         return "test1";
     }
 
-    @GetMapping("test2")
-    public String test2() {
+    @GetMapping("restTemplateTest")
+    public String restTemplateTest() {
         log.info("controller test2 执行 {}", MDC.get("X-B3-TraceId"));
-        restTemplate.getForEntity("http://127.0.0.1:8082/test", String.class);
+        String body = restTemplate.getForEntity("http://127.0.0.1:8082/test", String.class).getBody();
+        log.info("执行 restTemplate 方法返回值{}", body);
         return "test2";
     }
 

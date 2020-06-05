@@ -1,8 +1,10 @@
 package com.purgerteam.log.trace.starter.processor;
 
+import com.purgerteam.log.trace.starter.util.EnvironmentUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.env.EnvironmentPostProcessor;
-import org.springframework.core.env.*;
+import org.springframework.core.env.ConfigurableEnvironment;
+import org.springframework.core.env.Environment;
 import org.springframework.util.StringUtils;
 
 import java.util.Arrays;
@@ -11,8 +13,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author purgeyao
- * @since 1.0
+ * 日志格式处理器
+ *
+ * @author <a href="mailto:yaoonlyi@gmail.com">purgeyao</a>
+ * @since 1.0.0
  */
 public class TraceEnvironmentPostProcessor implements EnvironmentPostProcessor {
 
@@ -24,40 +28,27 @@ public class TraceEnvironmentPostProcessor implements EnvironmentPostProcessor {
     public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {
         Map<String, Object> map = new HashMap<>(1);
         map.put("logging.pattern.level", assemblyLevel(environment));
-        addOrReplace(environment.getPropertySources(), map);
+        EnvironmentUtils.addOrReplace(environment.getPropertySources(), map, PROPERTY_SOURCE_NAME);
     }
 
-    private void addOrReplace(MutablePropertySources propertySources, Map<String, Object> map) {
-        MapPropertySource target = null;
-        if (propertySources.contains(PROPERTY_SOURCE_NAME)) {
-            PropertySource<?> source = propertySources.get(PROPERTY_SOURCE_NAME);
-            if (source instanceof MapPropertySource) {
-                target = (MapPropertySource) source;
-                for (String key : map.keySet()) {
-                    if (!target.containsProperty(key)) {
-                        target.getSource().put(key, map.get(key));
-                    }
-                }
-            }
-        }
-        if (target == null) {
-            target = new MapPropertySource(PROPERTY_SOURCE_NAME, map);
-        }
-        if (!propertySources.contains(PROPERTY_SOURCE_NAME)) {
-            propertySources.addLast(target);
-        }
-    }
-
+    /**
+     * 处理输出格式 logging.pattern.level
+     *
+     * @param environment env对象
+     * @return 日志格式
+     */
     private String assemblyLevel(Environment environment) {
+        // 获取自定义格式
         String format = environment.getProperty("spring.trace.log.format");
+        // 判断是否为空 返回默认格式
         if (StringUtils.isEmpty(format)) {
             return LEVEL_STR_PARENT;
         }
         List<String> result = Arrays.asList(format.split(","));
-        if (result.isEmpty()){
+        if (result.isEmpty()) {
             return LEVEL_STR_PARENT;
         }
-        StringBuffer sb = new StringBuffer("%5p [");
+        StringBuilder sb = new StringBuilder("%5p [");
         for (String value : result) {
             sb.append("%X{").append(value).append(":-}").append(",");
         }

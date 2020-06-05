@@ -1,4 +1,4 @@
-package com.purgeteam.log.trace.service.a.demo;
+package com.purgeteam.log.trace.service.a.demo.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;

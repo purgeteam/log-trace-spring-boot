@@ -13,8 +13,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author purgeyao
- * @since 1.0
+ * 请求拦截器 初始化 Trace 内容
+ *
+ * @author <a href="mailto:yaoonlyi@gmail.com">purgeyao</a>
+ * @since 1.0.0
  */
 public class TraceFilter implements Filter {
 
@@ -24,11 +26,14 @@ public class TraceFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = ((HttpServletRequest) servletRequest);
 
+        // TODO: 2020/6/5 换为动态获取
+
         // "traceId"
         String headerTraceId = request.getHeader(Constants.LEGACY_TRACE_ID_NAME);
         // "ParentName"
         String headerParentName = request.getHeader(Constants.LEGACY_PARENT_SERVICE_NAME);
 
+        // 写入 MDC
         Map<String, String> map = new HashMap<>(16);
         map.put(Constants.LEGACY_TRACE_ID_NAME, headerTraceId);
         map.put(Constants.LEGACY_PARENT_SERVICE_NAME, headerParentName);
@@ -36,16 +41,6 @@ public class TraceFilter implements Filter {
 
         filterChain.doFilter(servletRequest, servletResponse);
         MDC.clear();
-    }
-
-    @Override
-    public void destroy() {
-
-    }
-
-    @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-
     }
 
 }

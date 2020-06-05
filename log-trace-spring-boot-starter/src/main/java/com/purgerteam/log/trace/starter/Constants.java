@@ -1,8 +1,10 @@
 package com.purgerteam.log.trace.starter;
 
 /**
- * @author purgeyao
- * @since 1.0
+ * 共用字段
+ *
+ * @author <a href="mailto:yaoonlyi@gmail.com">purgeyao</a>
+ * @since 1.0.0
  */
 public class Constants {
 
@@ -12,12 +14,12 @@ public class Constants {
     public static final String LEGACY_EXPORTABLE_NAME = "X-Span-Export";
 
     /**
-     * parent id
+     * parent id 父请求id
      */
     public static final String LEGACY_PARENT_ID_NAME = "X-B3-ParentSpanId";
 
     /**
-     * parent service name
+     * parent service name 父服务名称
      */
     public static final String LEGACY_PARENT_SERVICE_NAME = "X-B3-ParentName";
 
@@ -31,6 +33,5 @@ public class Constants {
      * 一个请求包含一个TraceId，多个SpanId
      */
     public static final String LEGACY_SPAN_ID_NAME = "X-B3-SpanId";
-
 
 }
