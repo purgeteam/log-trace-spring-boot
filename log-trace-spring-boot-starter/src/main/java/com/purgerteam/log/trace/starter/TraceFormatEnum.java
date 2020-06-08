@@ -9,6 +9,16 @@ package com.purgerteam.log.trace.starter;
 public enum TraceFormatEnum {
 
     /**
+     * 当前项目名称
+     */
+    LOCAL_NAME {
+        @Override
+        public String getValue() {
+            return Constants.LOCAL_NAME;
+        }
+    },
+
+    /**
      * 布尔类型。表示是否要将该信息输出到类似Zipkin这样的聚合器进行收集和展示
      */
     EXPORT {

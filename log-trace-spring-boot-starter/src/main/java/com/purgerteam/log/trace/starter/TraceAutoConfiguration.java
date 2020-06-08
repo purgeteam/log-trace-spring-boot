@@ -18,8 +18,8 @@ import java.util.Map;
 public class TraceAutoConfiguration {
 
     @Bean
-    public TraceFilter traceFilter() {
-        return new TraceFilter();
+    public TraceFilter traceFilter(TraceLogProperties traceLogProperties) {
+        return new TraceFilter(traceLogProperties);
     }
 
     @Bean

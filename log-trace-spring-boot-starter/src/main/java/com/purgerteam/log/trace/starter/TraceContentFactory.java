@@ -1,13 +1,11 @@
 package com.purgerteam.log.trace.starter;
 
 import com.purgerteam.log.trace.starter.handlers.TraceMetaObjectHandler;
-import com.purgerteam.log.trace.starter.util.TraceIdUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;
-import org.springframework.util.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;

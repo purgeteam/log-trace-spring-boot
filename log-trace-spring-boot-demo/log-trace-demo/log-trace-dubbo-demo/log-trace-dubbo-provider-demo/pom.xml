@@ -15,8 +15,8 @@
         <dependency>
             <groupId>com.purgeteam</groupId>
             <artifactId>log-trace-spring-boot-starter</artifactId>
-            <version>0.1.1.RELEASE</version>
         </dependency>
+
         <dependency>
             <groupId>com.purgeteam</groupId>
             <artifactId>log-trace-dubbo-api-demo</artifactId>

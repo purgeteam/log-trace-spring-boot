@@ -9,6 +9,11 @@ package com.purgerteam.log.trace.starter;
 public class Constants {
 
     /**
+     * 当前项目名称
+     */
+    public static final String LOCAL_NAME = "spring.application.name";
+
+    /**
      * 布尔类型。表示是否要将该信息输出到类似Zipkin这样的聚合器进行收集和展示
      */
     public static final String LEGACY_EXPORTABLE_NAME = "X-Span-Export";
